@@ -43,6 +43,7 @@ public class TSVToSeq {
 		Text key = new Text();
 		Text value = new Text();
 		while(true) {
+			// for each question
 			String line = reader.readLine();
 			if (line == null) {
 				break;
@@ -56,10 +57,10 @@ public class TSVToSeq {
 			String id = tokens[0];
 			String title = tokens[1];
 			String body = tokens[2];
-			String message = title + " " + body;
+			String message = title + " " + body; // combine title and body
 			key.set("/" + category + "/" + id);
 			value.set(message);
-			writer.append(key, value);
+			writer.append(key, value); // write to sequence file with given key and value
 			count++;
 		}
 		reader.close();
